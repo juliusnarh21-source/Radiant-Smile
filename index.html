@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiant Smile Dental Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+    <nav class="bg-teal-600 text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-wide">🦷 Radiant Smile Dental Care</h1>
+            <div class="space-x-4 text-sm md:text-base">
+                <a href="#register" class="hover:underline">Register</a>
+                <a href="#book" class="hover:underline">Book Appointment</a>
+                <a href="#admin" class="bg-teal-700 px-3 py-1.5 rounded hover:bg-teal-800 transition">Admin Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-6xl mx-auto my-8 px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+            <h2 class="text-4xl font-extrabold text-gray-800 leading-tight mb-4">Your Smile, Our Priority.</h2>
+            <p class="text-gray-600 text-lg mb-6">Experience modern, comfortable, and professional dental care. Register today to seamlessly book your next checkup online.</p>
+            <a href="#book" class="bg-teal-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-700 transition shadow-md">Book an Appointment Now</a>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" 
+                 alt="Modern clean dental practice clinic setup" 
+                 class="rounded-xl shadow-lg w-full h-64 md:h-80 object-cover">
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 space-y-12 pb-16">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section id="register" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">1. Patient Registration</h3>
+                <form id="registrationForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="regName" required class="mt-1 block w-full p-2.5 border rounded-lg focus:ring-teal-500 focus:border-teal-500 bg-gray-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="regEmail" required class="mt-1 block w-full p-2.5 border rounded-lg focus:ring-teal-500 focus:border-teal-500 bg-gray-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" id="regPhone" required class="mt-1 block w-full p-2.5 border rounded-lg focus:ring-teal-500 focus:border-teal-500 bg-gray-50">
+                    </div>
+                    <button type="submit" class="w-full bg-teal-600 text-white p-2.5 rounded-lg font-semibold hover:bg-teal-700 transition">Create Account</button>
+                </form>
+                <div id="regMessage" class="mt-3 text-sm hidden font-medium"></div>
+            </section>
+
+            <section id="book" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">2. Book an Appointment</h3>
+                <form id="bookingForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Registered Email</label>
+                        <input type="email" id="bookEmail" required class="mt-1 block w-full p-2.5 border rounded-lg focus:ring-teal-500 focus:border-teal-500 bg-gray-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Preferred Date</label>
+                        <input type="date" id="bookDate" required class="mt-1 block w-full p-2.5 border rounded-lg focus:ring-teal-500 focus:border-teal-500 bg-gray-50">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Preferred Time Slot</label>
+                        <select id="bookTime" class="mt-1 block w-full p-2.5 border rounded-lg focus:ring-teal-500 focus:border-teal-500 bg-gray-50">
+                            <option>09:00 AM</option>
+                            <option>10:30 AM</option>
+                            <option>01:00 PM</option>
+                            <option>02:30 PM</option>
+                            <option>04:00 PM</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-gray-800 text-white p-2.5 rounded-lg font-semibold hover:bg-gray-900 transition">Confirm Appointment</button>
+                </form>
+                <div id="bookMessage" class="mt-3 text-sm hidden font-medium"></div>
+            </section>
+        </div>
+
+        <section id="admin" class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-800">Internal Management Portal</h3>
+                    <p class="text-sm text-gray-500">Run and compile active patient booking reports from database tracking records.</p>
+                </div>
+                <button id="fetchReportsBtn" class="bg-teal-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-teal-700 transition text-sm">
+                    🔄 Generate Appointment Report
+                </button>
+            </div>
+
+            <div class="overflow-x-auto border rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200 text-left text-sm">
+                    <thead class="bg-gray-50 text-gray-700 uppercase text-xs font-semibold">
+                        <tr>
+                            <th class="px-6 py-3">Patient Name</th>
+                            <th class="px-6 py-3">Email</th>
+                            <th class="px-6 py-3">Phone</th>
+                            <th class="px-6 py-3">Appointment Date</th>
+                            <th class="px-6 py-3">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportTableBody" class="divide-y divide-gray-200 bg-white text-gray-600">
+                        <tr>
+                            <td colspan="5" class="px-6 py-4 text-center text-gray-400 italic">No report data generated yet. Click the button above to load database records.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // In-memory Relational Database Tables
+        const supabaseUrl = 'https://your-project-id.supabase.co';
+const supabaseKey = 'sb_publishable_your-long-key-string';
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+        function showMessage(elementId, text, isSuccess) {
+            const el = document.getElementById(elementId);
+            el.innerText = text;
+            el.className = `mt-3 text-sm font-medium ${isSuccess ? 'text-green-600' : 'text-red-600'}`;
+            el.classList.remove('hidden');
+        }
+
+        // Handle Registration
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const phone = document.getElementById('regPhone').value;
+
+            const exists = PatientsTable.find(p => p.email.toLowerCase() === email.toLowerCase());
+            if (exists) {
+                showMessage('regMessage', 'This email address is already registered.', false);
+                return;
+            }
+
+            PatientsTable.push({ id: PatientsTable.length + 1, name, email, phone });
+            showMessage('regMessage', 'Registration successful! Go ahead and book your slot.', true);
+            document.getElementById('registrationForm').reset();
+        });
+
+        // Handle Booking
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('bookEmail').value;
+            const date = document.getElementById('bookDate').value;
+            const time = document.getElementById('bookTime').value;
+
+            // Relational Query: Find matching user profile
+            const patient = PatientsTable.find(p => p.email.toLowerCase() === email.toLowerCase());
+            if (!patient) {
+                showMessage('bookMessage', 'No registered patient account found with this email. Please register first.', false);
+                return;
+            }
+
+            // Business Rule: Double booking prevention
+            const slotTaken = AppointmentsTable.find(a => a.date === date && a.time === time);
+            if (slotTaken) {
+                showMessage('bookMessage', 'This slot is already booked. Please choose another time.', false);
+                return;
+            }
+
+            AppointmentsTable.push({ id: AppointmentsTable.length + 1, patientId: patient.id, date, time });
+            showMessage('bookMessage', `Success! Appointment confirmed for ${date} at ${time}.`, true);
+            document.getElementById('bookingForm').reset();
+        });
+
+        // Generate Reports (Simulating an INNER JOIN)
+        document.getElementById('fetchReportsBtn').addEventListener('click', function() {
+            const tbody = document.getElementById('reportTableBody');
+            tbody.innerHTML = '';
+
+            if (AppointmentsTable.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-4 text-center text-gray-400 italic">No appointments found in database.</td></tr>`;
+                return;
+            }
+
+            AppointmentsTable.forEach(appointment => {
+                const patient = PatientsTable.find(p => p.id === appointment.patientId);
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-50 transition";
+                tr.innerHTML = `
+                    <td class="px-6 py-4 font-medium text-gray-800">${patient.name}</td>
+                    <td class="px-6 py-4">${patient.email}</td>
+                    <td class="px-6 py-4">${patient.phone}</td>
+                    <td class="px-6 py-4 font-semibold text-teal-600">${appointment.date}</td>
+                    <td class="px-6 py-4"><span class="bg-gray-100 text-gray-800 text-xs font-semibold px-2.5 py-0.5 rounded">${appointment.time}</span></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        });
+    </script>
+</body>
+</html>
